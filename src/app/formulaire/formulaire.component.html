@@ -1,0 +1,23 @@
+<p>Saisie du compte client</p>
+{{click}}
+<button [disabled]="!valid1" (click)="click1()">Enregistrer1</button>
+<button [disabled]="!valid2" (click)="click2()">Enregistrer2</button>
+<br/>
+<br/>
+Prenom : {{prenom | uppercase}}
+
+
+<input [(ngModel)]="prenom"/>
+
+
+
+<br/>
+<div *ngIf="prenom=='toto'"> Bonjour {{prenom}}
+
+    
+</div>
+
+<div *ngFor="let a of listArticles">
+    <app-adresse [prenom]="a"></app-adresse>
+
+</div>    
