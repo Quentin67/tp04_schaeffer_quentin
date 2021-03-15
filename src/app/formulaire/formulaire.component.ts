@@ -1,39 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import {FirstService} from '../service/first.service';
 
 @Component({
   selector: 'app-formulaire',
   templateUrl: './formulaire.component.html',
-  styleUrls: ['./formulaire.component.css']
+  styleUrls: ['./formulaire.component.css'],
 })
 export class FormulaireComponent implements OnInit {
 
-  valid1 : boolean = true;
-  valid2 : boolean = false;
-  prenom : string = "toto";
+  constructor(private firstService : FirstService) { }
+
+  regEx1 = /[A-Za-z]{2,30}/;
+  regEx2 = /[A-Za-z0-9]{2,30}/;
+  regEx3 = /^[0-9]{5}$/;
+
+  @Input() erreur : boolean = true;
   
-  click : string = "";
-  constructor() { }
+  nom : string = "";
+  prenom : string = "";
+  ville : string = "";
+  codePostal : string = "";
+  adresse : string = "";
 
-  listArticles  = ["livre","ordinateur","stylo","verre"];
-
+  error : boolean = true;
+  
   ngOnInit(): void {
   }
 
-  click1 () {
-    console.log ("click");
-    this.click = "click1";
-    this.valid1 = false;
-    this.valid2 = true;
-
+  click () {
+    alert("Enregistrement !");
+    this.firstService.log("click formulaire");
+    
   }
-
-  click2 () {
-    console.log ("click");
-    this.click = "click2";
-    this.valid1 = true;
-    this.valid2 = false;
-
-  }
-  
 
 }
