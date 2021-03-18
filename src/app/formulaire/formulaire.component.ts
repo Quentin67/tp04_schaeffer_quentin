@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {FirstService} from '../service/first.service';
 
 @Component({
   selector: 'app-formulaire',
@@ -8,7 +7,7 @@ import {FirstService} from '../service/first.service';
 })
 export class FormulaireComponent implements OnInit {
 
-  constructor(private firstService : FirstService) { }
+  constructor() { }
 
   regEx1 = /[A-Za-z]{2,30}/;
   regEx2 = /[A-Za-z0-9]{2,30}/;
@@ -28,9 +27,7 @@ export class FormulaireComponent implements OnInit {
   }
 
   click () {
-    alert("Enregistrement !");
-    this.firstService.log("click formulaire");
-    
+    console.log ("click");
   }
 
 }

@@ -16,12 +16,12 @@
 </div>
 <br/>
 <div *ngFor = "let l of tabLivre">
-    {{l.titre}} / {{l.prix}}
+    {{l.titre}} / {{l.prix}}  
 </div>
 
 <br/>
 <button (click)="onClickBackeng()"> Get Backend</button>
 
 <div  *ngFor = "let o of observable5$ | async">
-    {{o.titre}} / {{o.prix}} 
+    {{o.titre}} / {{o.prix}} - <button (click)="addPanier(o.ref)">Ajout Panier</button>
 </div>

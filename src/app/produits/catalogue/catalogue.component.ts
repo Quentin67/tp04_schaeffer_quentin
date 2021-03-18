@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FirstService} from '../service/first.service';
 import {Observable,of,from} from 'rxjs';
 import {filter} from 'rxjs/operators';
+import { Store } from '@ngxs/store';
+import {AddReference} from '../../../shared/actions/panier.action';
+import {Reference} from '../../../shared/models/reference';
+import { PanierState } from 'src/shared/states/panier-state';
 
 
 @Component({
@@ -11,7 +15,7 @@ import {filter} from 'rxjs/operators';
 })
 export class CatalogueComponent implements OnInit {
 
-  constructor(private firstService : FirstService)  { }
+  constructor(private firstService : FirstService, private store : Store)  { }
 
   observable1$ : Observable<string>;
   observable2$ : Observable<Array<string>> = of (["Obs2 - Data 1","Obs2 - Data 2", "Obs2 - Data 3"]);
@@ -64,5 +68,11 @@ export class CatalogueComponent implements OnInit {
 
   onClickBackeng () {
     this.observable5$ = this.firstService.getCatalogue ();
+  }
+
+  addPanier (ref : string) {
+    console.log (ref);
+    
+    this.store.dispatch (new AddReference ({"reference":ref}));
   }
 }
