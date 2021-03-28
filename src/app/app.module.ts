@@ -10,12 +10,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AuthGuard } from './auth.guard';
 import { NgxsModule } from '@ngxs/store';
-import { PanierState } from '../shared/states/panier-state'
+import { PanierState } from '../shared/states/panier-state';
+import { PanierComponent } from './panier/panier.component'
 
 const appRoutes : Routes = [
   {path:'',component:AccueilComponent},
   {path:'formulaire',component:FormulaireComponent},
-  {path: 'produits', canActivate: [AuthGuard], loadChildren: () => import('./produits/produits.module').then(m => m.ProduitsModule)}
+  {path: 'produits', canActivate: [AuthGuard], loadChildren: () => import('./produits/produits.module').then(m => m.ProduitsModule)},
+  {path: 'panier', component:PanierComponent}
 ]
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ const appRoutes : Routes = [
     HeaderComponent,
     FormulaireComponent,
     AccueilComponent,
+    PanierComponent,
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,

@@ -23,5 +23,6 @@
 <button (click)="onClickBackeng()"> Get Backend</button>
 
 <div  *ngFor = "let o of observable5$ | async">
-    {{o.titre}} / {{o.prix}} - <button (click)="addPanier(o.ref)">Ajout Panier</button>
+    {{o.titre}} / {{o.prix}} - <button (click)="addPanier(o.ref)">Ajout Panier</button> -
+    <button (click)="redirectDetails(o.ref)"> Détails </button>
 </div>

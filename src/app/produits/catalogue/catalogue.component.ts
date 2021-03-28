@@ -6,6 +6,7 @@ import { Store } from '@ngxs/store';
 import {AddReference} from '../../../shared/actions/panier.action';
 import {Reference} from '../../../shared/models/reference';
 import { PanierState } from 'src/shared/states/panier-state';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { PanierState } from 'src/shared/states/panier-state';
 })
 export class CatalogueComponent implements OnInit {
 
-  constructor(private firstService : FirstService, private store : Store)  { }
+  constructor(private firstService : FirstService, private store : Store, private router:Router)  { }
 
   observable1$ : Observable<string>;
   observable2$ : Observable<Array<string>> = of (["Obs2 - Data 1","Obs2 - Data 2", "Obs2 - Data 3"]);
@@ -74,5 +75,8 @@ export class CatalogueComponent implements OnInit {
     console.log (ref);
     
     this.store.dispatch (new AddReference ({"reference":ref}));
+  }
+  redirectDetails(ref: string){
+    this.router.navigate(['/produits/detail',ref]);
   }
 }
