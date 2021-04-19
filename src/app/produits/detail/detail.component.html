@@ -1,6 +1,5 @@
-Vous avez sélectionné la reférence : {{ref}}
-<h3>{{referenceDetails.designation}}</h3>
+Vous avez sélectionné la reférence : {{referenceDetails.reference}}
+<h3>{{referenceDetails.titre}}</h3>
 <h6>{{referenceDetails.reference}}</h6>
 <h6>{{referenceDetails.prix}}€</h6>
-<h6>{{referenceDetails.description}}</h6>
-<button (click)="onAddPanier()">Ajouter au panier</button>
+<button (click)="onAddPanier(referenceDetails.id, referenceDetails.prix, referenceDetails.reference, referenceDetails.titre)">Ajouter au panier</button>

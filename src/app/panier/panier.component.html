@@ -10,8 +10,8 @@
     <tbody>
         <tr *ngFor="let reference of references">
             <td>{{reference.reference}}</td>
-            <td>{{reference.designation}}</td>
-            <td>{{reference.price}}€</td>
+            <td>{{reference.titre}}</td>
+            <td>{{reference.prix}}€</td>
             <td><button (click)="onReferenceRemoved(reference)">Supprimer</button></td>
         </tr>    
     </tbody>

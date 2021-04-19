@@ -2,7 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
 import { environment } from '../../../environments/environment'
-
+import { Reference } from 'src/shared/models/reference';
+import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -29,5 +30,13 @@ export class FirstService {
         Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOiIxMjM0NSIsImVtYWlsIjoiZW1tYW51ZWwubWF1cmljZUBnbWFpbC5jb20iLCJwc2V1ZG8iOiJlbW1hIiwiaWF0IjoxNjE4ODYwMTA4LCJleHAiOjExNjE4ODYwMTA3fQ.IEDnL4VpWze5yKK8O3gcAxsGl0hOO90IgYfQ-jmCSDI'
       })
     });
+  }
+  public getDetails(id: string): Observable<Reference>{
+    return this.httpClient.get<Reference>(environment.getDetails.replace('{id}',id), {
+        headers: new HttpHeaders({
+          Authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyaWQiOiIxMjM0NSIsImVtYWlsIjoiZW1tYW51ZWwubWF1cmljZUBnbWFpbC5jb20iLCJwc2V1ZG8iOiJlbW1hIiwiaWF0IjoxNjE4ODYwMTA4LCJleHAiOjExNjE4ODYwMTA3fQ.IEDnL4VpWze5yKK8O3gcAxsGl0hOO90IgYfQ-jmCSDI'
+        })
+    }).pipe(map((response: any) => response.json()));
+    
   }
 }

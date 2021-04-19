@@ -1,5 +1,6 @@
 export interface Reference {
-    reference : string;
-    designation? : string;
-    prix? : number;
+    id: string;
+    reference? : string;
+    titre? : string;
+    prix? : string;
 }
