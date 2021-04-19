@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   baseUrl: '/assets/mock/bouchon.json',
+  getCatalogue: 'https://projetnfe114quentinschaeffer.herokuapp.com/api/catalogue'
 };
 
 /*
