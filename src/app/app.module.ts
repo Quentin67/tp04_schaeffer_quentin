@@ -13,12 +13,18 @@ import { NgxsModule } from '@ngxs/store';
 import { PanierState } from '../shared/states/panier-state';
 import { PanierComponent } from './panier/panier.component';
 import {ApiHttpInterceptor} from './api-http.interceptor';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const appRoutes : Routes = [
   {path:'',component:AccueilComponent},
-  {path:'formulaire',component:FormulaireComponent},
+  {path:'formulaire',component:FormulaireComponent, canActivate: [AuthGuard]},
   {path: 'produits', canActivate: [AuthGuard], loadChildren: () => import('./produits/produits.module').then(m => m.ProduitsModule)},
-  {path: 'panier', component:PanierComponent}
+  {path: 'panier', component:PanierComponent,canActivate: [AuthGuard]},
+  {path: 'connexion', component: LoginComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'addProduct', component: AddProductComponent,canActivate: [AuthGuard]}
 ]
 @NgModule({
   declarations: [
@@ -27,6 +33,9 @@ const appRoutes : Routes = [
     FormulaireComponent,
     AccueilComponent,
     PanierComponent,
+    LoginComponent,
+    RegisterComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,

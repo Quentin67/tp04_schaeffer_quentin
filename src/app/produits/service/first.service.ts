@@ -17,7 +17,16 @@ export class FirstService {
     return this.httpClient.get<any> (environment.getCatalogue);
   }
   public getDetails(id: string): Observable<Reference>{
-    return this.httpClient.get<Reference>(environment.getDetails.replace('{id}',id)).pipe(map((response: any) => response.json()));
-    
+    return this.httpClient.get<Reference>(environment.getDetails.replace('{id}',id));
+  }
+  public addProduct(ref: string, titre: string, price: number): Observable<any>{
+    return this.httpClient.post<any>(environment.addProduct, {
+      ref: ref,
+      titre:titre,
+      price: price
+    },{
+      observe: 'response',
+      responseType: 'blob' as 'json'
+    })
   }
 }

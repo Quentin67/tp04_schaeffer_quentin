@@ -13,6 +13,8 @@ import { Reference } from 'src/shared/models/reference';
 })
 export class DetailComponent implements OnInit {
 
+  referenceDetails$ : Observable<Reference>;
+
   referenceDetails : {id: string, reference?: string, titre?: string, prix?:string};
 
   constructor(private route: ActivatedRoute, private store:Store, private firstService : FirstService) { }
@@ -22,9 +24,8 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
     console.log(this.id)
-    this.firstService.getDetails(this.id).subscribe((res)=>{
-      this.referenceDetails = res;
-    })
+    this.referenceDetails$ = this.firstService.getDetails(this.id);
+    this.referenceDetails$.subscribe(item => this.referenceDetails = item );
 
     console.log(this.referenceDetails)
   }
