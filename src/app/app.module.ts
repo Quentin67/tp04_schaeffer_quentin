@@ -5,13 +5,14 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AuthGuard } from './auth.guard';
 import { NgxsModule } from '@ngxs/store';
 import { PanierState } from '../shared/states/panier-state';
-import { PanierComponent } from './panier/panier.component'
+import { PanierComponent } from './panier/panier.component';
+import {ApiHttpInterceptor} from './api-http.interceptor';
 
 const appRoutes : Routes = [
   {path:'',component:AccueilComponent},
@@ -32,7 +33,9 @@ const appRoutes : Routes = [
     RouterModule.forRoot (appRoutes),
     NgxsModule.forRoot ([PanierState])
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
