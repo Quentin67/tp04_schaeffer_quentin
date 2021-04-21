@@ -16,8 +16,8 @@
                 <tr *ngFor = "let o of observable$ | async">
                     <td>{{o.titre}}</td>
                     <td>{{o.prix}}</td>
-                    <td><button class="waves-effect waves-light btn-small" (click)="redirectDetails(o.id)"> Détails </button></td>
-                    <td><button class="waves-effect waves-light btn-small" (click)="addPanier(o.id, o.prix, o.ref, o.titre)">Ajout Panier</button></td>
+                    <td><button class="waves-effect waves-light btn" (click)="redirectDetails(o.id)"> Détails </button></td>
+                    <td><button class="waves-effect waves-light btn" (click)="addPanier(o.id, o.prix, o.ref, o.titre)">Ajout Panier</button></td>
                 </tr>
             </tbody>
         </table>

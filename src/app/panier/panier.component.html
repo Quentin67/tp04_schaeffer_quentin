@@ -1,6 +1,8 @@
 <div class="centerd">
     <div class="w70">
-        <h6>Mon panier</h6>
+        <div class="center">
+            <h6>Mon panier</h6>
+        </div>
         <table>
             <thead>
                 <tr>
@@ -14,7 +16,7 @@
                     <td>{{reference.reference}}</td>
                     <td>{{reference.titre}}</td>
                     <td>{{reference.prix}}€</td>
-                    <td><button (click)="onReferenceRemoved(reference)">Supprimer</button></td>
+                    <td><button class="waves-effect waves-light btn" (click)="onReferenceRemoved(reference)">Supprimer</button></td>
                 </tr>    
             </tbody>
         </table>
