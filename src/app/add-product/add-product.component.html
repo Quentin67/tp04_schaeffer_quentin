@@ -1,13 +1,21 @@
-  
-<p>Ajouter un produit</p>
-<label>Référence</label> <input [(ngModel)]="ref">
-<br/>
 
-<label>Titre</label>
- <input [(ngModel)]="titre">
+<div class="w100">
+    <div class="w30">
+        <div class="center">
+            <h6>Ajouter un produit</h6>
+        </div>
+        <label>Référence</label> <input [(ngModel)]="ref">
+        <br/>
 
- <label>Prix</label>
- <input [(ngModel)]="price">
+        <label>Titre</label>
+        <input [(ngModel)]="titre">
 
-<br/>
-<button (click) ="ajout ()">Ajouter</button>
+        <label>Prix</label>
+        <input [(ngModel)]="price">
+
+        <br/>
+        <div class="center">
+            <button (click) ="ajout ()" class="waves-effect waves-light btn">Ajouter</button>
+        </div>
+    </div>
+</div>

@@ -1,6 +1,25 @@
-<p>catalogue works!</p>
-
-<div  *ngFor = "let o of observable$ | async">
-    {{o.titre}} / {{o.prix}} - <button (click)="addPanier(o.id, o.prix, o.ref, o.titre)">Ajout Panier</button> -
-    <button (click)="redirectDetails(o.id)"> Détails </button>
+<div class="center">
+    <div class="w70">
+        <div class="center">
+            <h6>Catalogue</h6>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Prix</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let o of observable$ | async">
+                    <td>{{o.titre}}</td>
+                    <td>{{o.prix}}</td>
+                    <td><button class="waves-effect waves-light btn-small" (click)="redirectDetails(o.id)"> Détails </button></td>
+                    <td><button class="waves-effect waves-light btn-small" (click)="addPanier(o.id, o.prix, o.ref, o.titre)">Ajout Panier</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

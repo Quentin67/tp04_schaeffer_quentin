@@ -1,12 +1,16 @@
-  
-<p>Inscription</p>
-<label>Login</label> <input [(ngModel)]="login">
-<br/>
-
-<label>Mot de passe</label>
- <input [(ngModel)]="password">
-<br/>
-<label>Confirmation du mot de passe</label>
- <input [(ngModel)]="confirmationPassword">
-<br/>
-<button (click) ="inscription ()">Inscription</button>
+  <div class="fullWidth">
+    <div class="loginCard">  
+        <label>Login</label> <input [(ngModel)]="login">
+        <br/>
+        
+        <label>Mot de passe</label>
+         <input [(ngModel)]="password" type="password">
+        <br/>
+        <label>Confirmation du mot de passe</label>
+         <input [(ngModel)]="confirmationPassword" type="password">
+        <br/>
+        <div class="connexionButtonDiv">
+            <button class="waves-effect waves-light btn" (click) ="inscription ()">Inscription</button>
+        </div>
+    </div>
+</div>

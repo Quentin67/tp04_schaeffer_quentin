@@ -1,10 +1,15 @@
-  
-<p>Connexion</p>
-<label>Connexion</label> <input [(ngModel)]="login">
-<br/>
 
-<label>Mot de passe</label>
- <input [(ngModel)]="password">
+<div class="fullWidth">
+    <div class="loginCard">  
+        <label>Connexion</label> <input [(ngModel)]="login">
+        <br/>
 
-<br/>
-<button (click) ="connexion ()">Connexion</button>
+        <label>Mot de passe</label>
+        <input [(ngModel)]="password" type="password">
+
+        <br/>
+        <div class="connexionButtonDiv">
+            <button class="waves-effect waves-light btn" (click) ="connexion ()">Connexion</button>
+        </div>
+    </div>
+</div>

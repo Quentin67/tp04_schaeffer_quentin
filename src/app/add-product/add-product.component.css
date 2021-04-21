@@ -1,0 +1,12 @@
+.w30{
+    width: 30%;
+    margin: 20vh;
+    padding: 50px;
+    background-color: #e6e4e4;
+    border-radius: 20px;
+}
+.w100{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}

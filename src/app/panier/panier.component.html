@@ -1,18 +1,24 @@
-<h6>Mon panier</h6>
-<table>
-    <thead>
-        <tr>
-            <th>Reference</th>
-            <th>Désignation</th>
-            <th>Prix</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let reference of references">
-            <td>{{reference.reference}}</td>
-            <td>{{reference.titre}}</td>
-            <td>{{reference.prix}}€</td>
-            <td><button (click)="onReferenceRemoved(reference)">Supprimer</button></td>
-        </tr>    
-    </tbody>
-</table>
+<div class="centerd">
+    <div class="w70">
+        <h6>Mon panier</h6>
+        <table>
+            <thead>
+                <tr>
+                    <th>Reference</th>
+                    <th>Désignation</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let reference of references">
+                    <td>{{reference.reference}}</td>
+                    <td>{{reference.titre}}</td>
+                    <td>{{reference.prix}}€</td>
+                    <td><button (click)="onReferenceRemoved(reference)">Supprimer</button></td>
+                </tr>    
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
