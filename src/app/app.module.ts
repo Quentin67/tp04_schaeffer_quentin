@@ -16,6 +16,8 @@ import {ApiHttpInterceptor} from './api-http.interceptor';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { FormulaireCommandeComponent } from './formulaire-commande/formulaire-commande.component';
+import { CreditCardInfoComponent } from './credit-card-info/credit-card-info.component';
 
 const appRoutes : Routes = [
   {path:'',component:AccueilComponent},
@@ -24,7 +26,9 @@ const appRoutes : Routes = [
   {path: 'panier', component:PanierComponent,canActivate: [AuthGuard]},
   {path: 'connexion', component: LoginComponent},
   {path: 'register', component: RegisterComponent},
-  {path: 'addProduct', component: AddProductComponent,canActivate: [AuthGuard]}
+  {path: 'addProduct', component: AddProductComponent,canActivate: [AuthGuard]},
+  {path: 'commandeAdress', component: FormulaireCommandeComponent,canActivate: [AuthGuard]},
+  {path: 'commandeCreditCard', component:CreditCardInfoComponent,canActivate: [AuthGuard]}
 ]
 @NgModule({
   declarations: [
@@ -36,6 +40,8 @@ const appRoutes : Routes = [
     LoginComponent,
     RegisterComponent,
     AddProductComponent,
+    FormulaireCommandeComponent,
+    CreditCardInfoComponent,
   ],
   imports: [
     BrowserModule,FormsModule,HttpClientModule,

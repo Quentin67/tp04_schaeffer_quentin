@@ -1,0 +1,14 @@
+<div class="center">
+    <div class="w70">
+        <label>Numéro de carte</label><input [(ngModel)]="creditCard">
+        <br/>
+        <label>Nom du porteur de carte</label><input [(ngModel)]="name">
+        <br/>
+        <label>Date d'expiration:</label><input [(ngModel)]="month"> / <input [(ngModel)]="year">
+        <br/>
+        <label>CCV</label><input [(ngModel)]="ccv">
+        <div class="connexionButtonDiv">
+            <button class="waves-effect waves-light btn" (click) ="validatePaiment ()">Valider</button>
+        </div>
+    </div>
+</div>

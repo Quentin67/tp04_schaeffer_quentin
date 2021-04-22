@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {Reference} from '../../shared/models/reference';
 import {PanierState} from '../../shared/states/panier-state';
 import {DelReference} from '../../shared/actions/panier.action';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -16,7 +17,7 @@ export class PanierComponent implements OnInit {
   reference$ : Observable<Reference[]>;
   references: Reference[];
 
-  constructor(private store:Store) { }
+  constructor(private store:Store, private router:Router) { }
 
   ngOnInit(): void {
     this.reference$ = this.store.select(PanierState.getReferences);
@@ -25,6 +26,9 @@ export class PanierComponent implements OnInit {
 
   onReferenceRemoved(reference:Reference){
     this.store.dispatch(new DelReference(reference));
+  }
+  onCommandePanier(){
+    this.router.navigate(['/commandeAdress']);
   }
 
 }
